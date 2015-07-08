@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="fBaseModel.Store" Alias="Self" Provider="FirebirdSql.Data.FirebirdClient" ProviderManifestToken="2.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="fBaseModelStoreContainer">
+          <EntitySet Name="departments" EntityType="fBaseModel.Store.departments" store:Type="Tables" Schema="Firebird" />
+          <EntitySet Name="educations" EntityType="fBaseModel.Store.educations" store:Type="Tables" Schema="Firebird" />
+          <EntitySet Name="gensers" EntityType="fBaseModel.Store.gensers" store:Type="Tables" Schema="Firebird" />
+          <EntitySet Name="humans" EntityType="fBaseModel.Store.humans" store:Type="Tables" Schema="Firebird" />
+          <EntitySet Name="rancs" EntityType="fBaseModel.Store.rancs" store:Type="Tables" Schema="Firebird" />
+          <EntitySet Name="testresults" EntityType="fBaseModel.Store.testresults" store:Type="Tables" Schema="Firebird" />
+          <AssociationSet Name="FK_TESTRESULTS_HUMANS" Association="fBaseModel.Store.FK_TESTRESULTS_HUMANS">
+            <End Role="humans" EntitySet="humans" />
+            <End Role="testresults" EntitySet="testresults" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="departments">
+          <Key>
+            <PropertyRef Name="idd" />
+          </Key>
+          <Property Name="idd" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="description" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="educations">
+          <Key>
+            <PropertyRef Name="ide" />
+          </Key>
+          <Property Name="ide" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="description" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="gensers">
+          <Key>
+            <PropertyRef Name="idg" />
+          </Key>
+          <Property Name="idg" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="description" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="humans">
+          <Key>
+            <PropertyRef Name="idh" />
+          </Key>
+          <Property Name="idh" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="firstname" Type="varchar" MaxLength="50" />
+          <Property Name="secondname" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="genderid" Type="int" />
+          <Property Name="rankid" Type="int" />
+          <Property Name="educationid" Type="int" />
+          <Property Name="departmentid" Type="int" />
+          <Property Name="birthday" Type="date" />
+          <Property Name="additinfo" Type="clob" />
+        </EntityType>
+        <EntityType Name="rancs">
+          <Key>
+            <PropertyRef Name="idr" />
+          </Key>
+          <Property Name="idr" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="description" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="testresults">
+          <Key>
+            <PropertyRef Name="idtr" />
+          </Key>
+          <Property Name="idtr" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="idh" Type="int" Nullable="false" />
+          <Property Name="testdate" Type="timestamp" Nullable="false" />
+          <Property Name="testid" Type="int" Nullable="false" />
+          <Property Name="teststream" Type="clob" Nullable="false" />
+          <Property Name="mode" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_TESTRESULTS_HUMANS">
+          <End Role="humans" Type="fBaseModel.Store.humans" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="testresults" Type="fBaseModel.Store.testresults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="humans">
+              <PropertyRef Name="idh" />
+            </Principal>
+            <Dependent Role="testresults">
+              <PropertyRef Name="idh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="fBaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="fBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="educations" EntityType="fBaseModel.education" />
+          <EntitySet Name="gensers" EntityType="fBaseModel.genser" />
+          <EntitySet Name="humans" EntityType="fBaseModel.human" />
+          <EntitySet Name="rancs" EntityType="fBaseModel.ranc" />
+          <EntitySet Name="testresults" EntityType="fBaseModel.testresult" />
+          <AssociationSet Name="FK_testresults_humans" Association="fBaseModel.FK_testresults_humans">
+            <End Role="humans" EntitySet="humans" />
+            <End Role="testresults" EntitySet="testresults" />
+          </AssociationSet>
+          <EntitySet Name="departments" EntityType="fBaseModel.department" />
+        </EntityContainer>
+        <EntityType Name="education">
+          <Key>
+            <PropertyRef Name="ide" />
+          </Key>
+          <Property Name="ide" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="genser">
+          <Key>
+            <PropertyRef Name="idg" />
+          </Key>
+          <Property Name="idg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="human">
+          <Key>
+            <PropertyRef Name="idh" />
+          </Key>
+          <Property Name="idh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="secondname" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="genderid" Type="Int32" />
+          <Property Name="rankid" Type="Int32" />
+          <Property Name="educationid" Type="Int32" />
+          <Property Name="departmentid" Type="Int32" />
+          <Property Name="birthday" Type="DateTime" />
+          <Property Name="additinfo" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="testresults" Relationship="fBaseModel.FK_testresults_humans" FromRole="humans" ToRole="testresults" />
+        </EntityType>
+        <EntityType Name="ranc">
+          <Key>
+            <PropertyRef Name="idr" />
+          </Key>
+          <Property Name="idr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="testresult">
+          <Key>
+            <PropertyRef Name="idtr" />
+          </Key>
+          <Property Name="idtr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idh" Type="Int32" Nullable="false" />
+          <Property Name="testdate" Type="DateTime" Nullable="false" />
+          <Property Name="testid" Type="Int32" Nullable="false" />
+          <Property Name="teststream" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="mode" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="human" Relationship="fBaseModel.FK_testresults_humans" FromRole="testresults" ToRole="humans" />
+        </EntityType>
+        <Association Name="FK_testresults_humans">
+          <End Role="humans" Type="fBaseModel.human" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="testresults" Type="fBaseModel.testresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="humans">
+              <PropertyRef Name="idh" />
+            </Principal>
+            <Dependent Role="testresults">
+              <PropertyRef Name="idh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="idd" />
+          </Key>
+          <Property Type="Int32" Name="idd" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="fBaseModelStoreContainer" CdmEntityContainer="fBaseEntities">
+          <EntitySetMapping Name="educations"><EntityTypeMapping TypeName="fBaseModel.education"><MappingFragment StoreEntitySet="educations">
+            <ScalarProperty Name="ide" ColumnName="ide" />
+            <ScalarProperty Name="description" ColumnName="description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="gensers"><EntityTypeMapping TypeName="fBaseModel.genser"><MappingFragment StoreEntitySet="gensers">
+            <ScalarProperty Name="idg" ColumnName="idg" />
+            <ScalarProperty Name="description" ColumnName="description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="humans"><EntityTypeMapping TypeName="fBaseModel.human"><MappingFragment StoreEntitySet="humans">
+            <ScalarProperty Name="idh" ColumnName="idh" />
+            <ScalarProperty Name="firstname" ColumnName="firstname" />
+            <ScalarProperty Name="secondname" ColumnName="secondname" />
+            <ScalarProperty Name="lastname" ColumnName="lastname" />
+            <ScalarProperty Name="genderid" ColumnName="genderid" />
+            <ScalarProperty Name="rankid" ColumnName="rankid" />
+            <ScalarProperty Name="educationid" ColumnName="educationid" />
+            <ScalarProperty Name="departmentid" ColumnName="departmentid" />
+            <ScalarProperty Name="birthday" ColumnName="birthday" />
+            <ScalarProperty Name="additinfo" ColumnName="additinfo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="rancs"><EntityTypeMapping TypeName="fBaseModel.ranc"><MappingFragment StoreEntitySet="rancs">
+            <ScalarProperty Name="idr" ColumnName="idr" />
+            <ScalarProperty Name="description" ColumnName="description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="testresults"><EntityTypeMapping TypeName="fBaseModel.testresult"><MappingFragment StoreEntitySet="testresults">
+            <ScalarProperty Name="idtr" ColumnName="idtr" />
+            <ScalarProperty Name="idh" ColumnName="idh" />
+            <ScalarProperty Name="testdate" ColumnName="testdate" />
+            <ScalarProperty Name="testid" ColumnName="testid" />
+            <ScalarProperty Name="teststream" ColumnName="teststream" />
+            <ScalarProperty Name="mode" ColumnName="mode" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="departments">
+            <EntityTypeMapping TypeName="fBaseModel.department">
+              <MappingFragment StoreEntitySet="departments">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="idd" ColumnName="idd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="fBaseModel">
+        <EntityTypeShape EntityType="fBaseModel.education" Width="1.5" PointX="2.75" PointY="4.75" Height="1.2636116536458335" IsExpanded="true" />
+        <EntityTypeShape EntityType="fBaseModel.genser" Width="1.5" PointX="4.75" PointY="4.75" Height="1.2636116536458335" IsExpanded="true" />
+        <EntityTypeShape EntityType="fBaseModel.human" Width="1.5" PointX="0.75" PointY="1" Height="2.7427376302083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="fBaseModel.ranc" Width="1.5" PointX="5.75" PointY="0.75" Height="1.2636116536458317" IsExpanded="true" />
+        <EntityTypeShape EntityType="fBaseModel.testresult" Width="1.5" PointX="3" PointY="1.25" Height="2.0853483072916665" IsExpanded="true" />
+        <AssociationConnector Association="fBaseModel.FK_testresults_humans" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.2926741536458333" />
+          <ConnectorPoint PointX="3" PointY="2.2926741536458333" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="fBaseModel.department" Width="1.5" PointX="1" PointY="4.75" Height="1.2636116536458317" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

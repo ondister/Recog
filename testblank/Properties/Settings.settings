@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Recog.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServerType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Embedded</Value>
+    </Setting>
+    <Setting Name="ServerIP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="pBaseAlias" Type="System.String" Scope="User">
+      <Value Profile="(Default)">pBase</Value>
+    </Setting>
+    <Setting Name="fBaseAlias" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fBase</Value>
+    </Setting>
+    <Setting Name="AllowViews" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Pass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1259</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

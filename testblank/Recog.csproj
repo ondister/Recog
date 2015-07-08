@@ -1,0 +1,1048 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C0EA5160-F749-4298-9104-450DBEC0105C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Recog</RootNamespace>
+    <AssemblyName>Recog</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ProductName>RECOG</ProductName>
+    <PublisherName>НИЦ ИПС РБ</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.9.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>backpack.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>913C099E20835E1261DBCA68EAB045AF205C3951</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Recog_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Recog.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Recog_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependcies\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependcies\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependcies\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=2.7.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependcies\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.WIA, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\dependcies\Interop.WIA.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependcies\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp">
+      <HintPath>..\dependcies\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="RtfWriter, Version=0.9.1.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependcies\RtfWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TwainDotNet, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d3cd6e1539fa8c71, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependcies\TwainDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="TwainDotNet.WinFroms">
+      <HintPath>..\dependcies\TwainDotNet.WinFroms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationInfo.cs" />
+    <Compile Include="Data\BaseManager.cs" />
+    <Compile Include="BlankRecognition\AutomatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlankRecognition\AutomatorForm.Designer.cs">
+      <DependentUpon>AutomatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BlankRecognition\RecogAutomator.cs" />
+    <Compile Include="BlankRecognition\Recognizer.cs" />
+    <Compile Include="BlankRecognition\RecogResult.cs" />
+    <Compile Include="BlankRecognition\RForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlankRecognition\RForm.Designer.cs">
+      <DependentUpon>RForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BlankRecognition\StenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlankRecognition\StenForm.Designer.cs">
+      <DependentUpon>StenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AutoWaitCursor.cs" />
+    <Compile Include="Controls\ContrastsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ContrastsControl.Designer.cs">
+      <DependentUpon>ContrastsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScaleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ScaleControl.Designer.cs">
+      <DependentUpon>ScaleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ConnectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\ConnectionForm.Designer.cs">
+      <DependentUpon>ConnectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\fModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>fModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ImportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\ImportForm.Designer.cs">
+      <DependentUpon>ImportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BackupTool.cs" />
+    <Compile Include="Data\ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\ExportForm.Designer.cs">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\pModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SearchParam.cs" />
+    <Compile Include="PassBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PassBox.Designer.cs">
+      <DependentUpon>PassBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocPrinter\PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocPrinter\PrintForm.Designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PortraitForm.cs" />
+    <Compile Include="Forms\LandscapeForm.cs" />
+    <Compile Include="Forms\DualForm.cs" />
+    <Compile Include="Humans\ReadHumanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Humans\ReadHumanForm.Designer.cs">
+      <DependentUpon>ReadHumanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interact\ExcelReport.cs" />
+    <Compile Include="Interact\LoadFBForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interact\LoadFBForm.Designer.cs">
+      <DependentUpon>LoadFBForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interact\RExcel.cs" />
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PTests\IAnswers.cs" />
+    <Compile Include="PTests\ResultReader\AnswersFactory.cs" />
+    <Compile Include="PTests\Addictive\AAnswer.cs" />
+    <Compile Include="PTests\Addictive\AAnswers.cs" />
+    <Compile Include="PTests\Addictive\AMarkExtractor.cs" />
+    <Compile Include="PTests\Addictive\ATestLoader.cs" />
+    <Compile Include="PTests\Addictive\ATestReport.cs" />
+    <Compile Include="PTests\Addictive\Scale\AScalePR.cs" />
+    <Compile Include="PTests\Addictive\Scale\AScaleS.cs" />
+    <Compile Include="PTests\Addictive\Scale\AScaleP.cs" />
+    <Compile Include="PTests\Addictive\Scale\AScaleR.cs" />
+    <Compile Include="PTests\Addictive\Scale\AScaleSI.cs" />
+    <Compile Include="PTests\Addictive\TestA.cs" />
+    <Compile Include="PTests\Addictive\TestAForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\Addictive\TestAForm.Designer.cs">
+      <DependentUpon>TestAForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\Contrasts\ContrastsAnswer.cs" />
+    <Compile Include="PTests\Contrasts\ContrastsAnswers.cs" />
+    <Compile Include="PTests\Contrasts\CycleClickArgs.cs" />
+    <Compile Include="PTests\Contrasts\ContrastsTestReport.cs" />
+    <Compile Include="PTests\Contrasts\Scales\ContrastsScale.cs" />
+    <Compile Include="PTests\Contrasts\TestContrasts.cs" />
+    <Compile Include="PTests\Contrasts\TestContrastsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\Contrasts\TestContrastsForm.Designer.cs">
+      <DependentUpon>TestContrastsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\DialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\DialogBox.Designer.cs">
+      <DependentUpon>DialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainLoader.cs" />
+    <Compile Include="PTests\D\Scales\DScaleKL.cs" />
+    <Compile Include="PTests\D\Scales\NeuralNet.cs" />
+    <Compile Include="PTests\IScalesCollection.cs" />
+    <Compile Include="PTests\Leongard\LAnswer.cs" />
+    <Compile Include="PTests\Leongard\LAnswers.cs" />
+    <Compile Include="PTests\Leongard\LMarkExtractor.cs" />
+    <Compile Include="PTests\Leongard\LTestLoader.cs" />
+    <Compile Include="PTests\Leongard\LTestReport.cs" />
+    <Compile Include="PTests\Leongard\Scales\LScaleG1.cs" />
+    <Compile Include="PTests\Leongard\Scales\LScaleG2.cs" />
+    <Compile Include="PTests\Leongard\Scales\LScaleG3.cs" />
+    <Compile Include="PTests\Leongard\Scales\LScaleG4.cs" />
+    <Compile Include="PTests\Leongard\Scales\LScaleG5.cs" />
+    <Compile Include="PTests\Leongard\Scales\LScaleG6.cs" />
+    <Compile Include="PTests\Leongard\Scales\LScaleG7.cs" />
+    <Compile Include="PTests\Leongard\Scales\LScaleG8.cs" />
+    <Compile Include="PTests\Leongard\Scales\LScaleG9.cs" />
+    <Compile Include="PTests\Leongard\Scales\LScaleG10.cs" />
+    <Compile Include="PTests\Leongard\TestL.cs" />
+    <Compile Include="PTests\Leongard\TestLForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\Leongard\TestLForm.Designer.cs">
+      <DependentUpon>TestLForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\MD\MDTestReport.cs" />
+    <Compile Include="PTests\MD\MDMarkExtractor.cs" />
+    <Compile Include="PTests\MD\MDTestLoader.cs" />
+    <Compile Include="PTests\MD\MDAnswer.cs" />
+    <Compile Include="PTests\MD\MDAnswers.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleLie.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleAnamnes.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM1.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM1_1.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM1_2.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM2.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM2_2.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM2_1.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM2_3.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM3.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM3_1.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM3_2.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM3_3.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM3_4.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM3_5.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleM3_6.cs" />
+    <Compile Include="PTests\MD\Scales\MDScaleIntegral.cs" />
+    <Compile Include="PTests\MD\TestMD.cs" />
+    <Compile Include="PTests\MD\TestMDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\MD\TestMDForm.Designer.cs">
+      <DependentUpon>TestMDForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\NPNA\NPNTestReport.cs" />
+    <Compile Include="PTests\NPNA\NPNTestLoader.cs" />
+    <Compile Include="PTests\NPNA\NPNMarkExtractor.cs" />
+    <Compile Include="PTests\NPNA\NPNAnswers.cs" />
+    <Compile Include="PTests\NPNA\NPNAnswer.cs" />
+    <Compile Include="PTests\NPNA\Scales\NPNScaleD.cs" />
+    <Compile Include="PTests\NPNA\Scales\NPNScaleNPN.cs" />
+    <Compile Include="PTests\NPNA\Scales\NPNScaleI.cs" />
+    <Compile Include="PTests\NPNA\Scales\NPNScalePs.cs" />
+    <Compile Include="PTests\NPNA\Scales\NPNScalePp.cs" />
+    <Compile Include="PTests\NPNA\Scales\NPNScalePy.cs" />
+    <Compile Include="PTests\NPNA\Scales\NPNScaleS.cs" />
+    <Compile Include="PTests\NPNA\TestNPNForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\NPNA\TestNPNForm.Designer.cs">
+      <DependentUpon>TestNPNForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\NPNA\TestNPN.cs" />
+    <Compile Include="PTests\Prognoz\PTestReport.cs" />
+    <Compile Include="PTests\Prognoz\PMarkExtractor.cs" />
+    <Compile Include="PTests\Prognoz\PTestLoader.cs" />
+    <Compile Include="PTests\Prognoz\PAnswers.cs" />
+    <Compile Include="PTests\Prognoz\PAnswer.cs" />
+    <Compile Include="PTests\Prognoz\Scales\PScaleNPU.cs" />
+    <Compile Include="PTests\Prognoz\Scales\PScaleI.cs" />
+    <Compile Include="PTests\Prognoz\TestPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\Prognoz\TestPForm.Designer.cs">
+      <DependentUpon>TestPForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\Prognoz\TestP.cs" />
+    <Compile Include="PTests\References\ConclusionMaster.cs" />
+    <Compile Include="PTests\PEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\PEditorForm.Designer.cs">
+      <DependentUpon>PEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\References\DTestReference.cs" />
+    <Compile Include="PTests\References\enumPReferences.cs" />
+    <Compile Include="PTests\References\PNNTestReference.cs" />
+    <Compile Include="PTests\References\FPITestReference.cs" />
+    <Compile Include="PTests\References\KettellATestReference.cs" />
+    <Compile Include="PTests\References\KettellCTestReference.cs" />
+    <Compile Include="PTests\References\ReferenceFactory.cs" />
+    <Compile Include="PTests\References\MDTestReference.cs" />
+    <Compile Include="PTests\References\IntegrativeReference.cs" />
+    <Compile Include="PTests\References\PTestReference.cs" />
+    <Compile Include="PTests\References\ATestReference.cs" />
+    <Compile Include="PTests\References\NPNTestReference.cs" />
+    <Compile Include="PTests\References\LTestReference.cs" />
+    <Compile Include="PTests\ReportFactory.cs" />
+    <Compile Include="PTests\ResultReader\TestResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\ResultReader\TestResultForm.Designer.cs">
+      <DependentUpon>TestResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\ScaleChecker.cs" />
+    <Compile Include="PTests\TestFactory.cs" />
+    <Compile Include="RecogCore\AnswerGrid\Cell.cs" />
+    <Compile Include="RecogCore\AnswerGrid\Cells.cs" />
+    <Compile Include="RecogCore\AnswerGrid\Answers.cs" />
+    <Compile Include="RecogCore\AnswerGrid\Answer.cs" />
+    <Compile Include="RecogCore\AnswerGrid\Grid.cs" />
+    <Compile Include="Controls\AnswerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AnswerControl.Designer.cs">
+      <DependentUpon>AnswerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AnswerEventArgs.cs" />
+    <Compile Include="Controls\AnswersGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AnswersGrid.Designer.cs">
+      <DependentUpon>AnswersGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ThreeButtonsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ThreeButtonsControl.Designer.cs">
+      <DependentUpon>ThreeButtonsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CycleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CycleControl.Designer.cs">
+      <DependentUpon>CycleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EndTestControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EndTestControl.Designer.cs">
+      <DependentUpon>EndTestControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HumanControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\HumanControl.Designer.cs">
+      <DependentUpon>HumanControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StartTestControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StartTestControl.Designer.cs">
+      <DependentUpon>StartTestControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TwoButtonsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TwoButtonsControl.Designer.cs">
+      <DependentUpon>TwoButtonsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecogCore\Canvas.cs" />
+    <Compile Include="RecogCore\Distance.cs" />
+    <Compile Include="RecogCore\enumMarkerType.cs" />
+    <Compile Include="RecogCore\Geometry.cs" />
+    <Compile Include="RecogCore\Marker.cs" />
+    <Compile Include="RecogCore\Statistics.cs" />
+    <Compile Include="Forms\FormPrinter.cs" />
+    <Compile Include="Humans\AddHumanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Humans\AddHumanForm.Designer.cs">
+      <DependentUpon>AddHumanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Humans\FormDep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Humans\FormDep.Designer.cs">
+      <DependentUpon>FormDep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Humans\HumansForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Humans\HumansForm.Designer.cs">
+      <DependentUpon>HumansForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PoolDoneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PoolDoneForm.Designer.cs">
+      <DependentUpon>PoolDoneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\D\DAnswer.cs" />
+    <Compile Include="PTests\D\DAnswers.cs" />
+    <Compile Include="PTests\D\DTestLoader.cs" />
+    <Compile Include="PTests\D\DTestReport.cs" />
+    <Compile Include="PTests\D\DMarkExtractor.cs" />
+    <Compile Include="PTests\D\Scales\LevelIII\DScaleNPU.cs" />
+    <Compile Include="PTests\D\Scales\LevelIII\DScaleDS.cs" />
+    <Compile Include="PTests\D\Scales\LevelIII\DScaleCS.cs" />
+    <Compile Include="PTests\D\Scales\LevelIII\DScaleMN.cs" />
+    <Compile Include="PTests\D\Scales\LevelII\DScalePC.cs" />
+    <Compile Include="PTests\D\Scales\LevelII\DScaleDAN.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScaleL.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScaleF.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScaleK.cs" />
+    <Compile Include="PTests\D\Scales\LevelIV\DScaleLAP.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScaleHS.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScaleD.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScaleHY.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScalePD.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScaleMF.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScalePA.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScalePT.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScaleSC.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScaleMA.cs" />
+    <Compile Include="PTests\D\Scales\LevelI\DScaleSI.cs" />
+    <Compile Include="PTests\D\Scales\LevelII\DScaleAC.cs" />
+    <Compile Include="PTests\D\TestD.cs" />
+    <Compile Include="PTests\D\TestDForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\D\TestDForm.Designer.cs">
+      <DependentUpon>TestDForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\EnumPTests.cs" />
+    <Compile Include="PTests\FPI\FPIAnswer.cs" />
+    <Compile Include="PTests\FPI\FPIAnswers.cs" />
+    <Compile Include="PTests\FPI\FPIMarkExtractor.cs" />
+    <Compile Include="PTests\FPI\FPITestLoader.cs" />
+    <Compile Include="PTests\FPI\FPITestReport.cs" />
+    <Compile Include="PTests\FPI\Scales\FPIScaleI.cs" />
+    <Compile Include="PTests\FPI\Scales\FPIScaleII.cs" />
+    <Compile Include="PTests\FPI\Scales\FPIScaleIII.cs" />
+    <Compile Include="PTests\FPI\Scales\FPIScaleIV.cs" />
+    <Compile Include="PTests\FPI\Scales\FPIScaleV.cs" />
+    <Compile Include="PTests\FPI\Scales\FPIScaleVI.cs" />
+    <Compile Include="PTests\FPI\Scales\FPIScaleVII.cs" />
+    <Compile Include="PTests\FPI\Scales\FPIScaleVIII.cs" />
+    <Compile Include="PTests\FPI\Scales\FPIScaleIX.cs" />
+    <Compile Include="PTests\FPI\Scales\FPIScaleX.cs" />
+    <Compile Include="PTests\FPI\Scales\FPIScaleXI.cs" />
+    <Compile Include="PTests\FPI\Scales\FPIScaleXII.cs" />
+    <Compile Include="PTests\FPI\TestFPI.cs" />
+    <Compile Include="PTests\FPI\TestFPIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\FPI\TestFPIForm.Designer.cs">
+      <DependentUpon>TestFPIForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\References\IReference.cs" />
+    <Compile Include="PTests\IScale.cs" />
+    <Compile Include="PTests\ITest.cs" />
+    <Compile Include="PTests\ITestReport.cs" />
+    <Compile Include="PTests\Kettell\KettellMarkExtractor.cs" />
+    <Compile Include="PTests\Kettell\KettellAnswer.cs" />
+    <Compile Include="PTests\Kettell\KettellAnswers.cs" />
+    <Compile Include="PTests\Kettell\Scales\EnumKettellType.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleA.cs" />
+    <Compile Include="PTests\Kettell\KettellCTestLoader.cs" />
+    <Compile Include="PTests\Kettell\KettellCTestReport.cs" />
+    <Compile Include="PTests\Kettell\TestKettellC.cs" />
+    <Compile Include="PTests\Kettell\TestKettellCForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\Kettell\TestKettellCForm.Designer.cs">
+      <DependentUpon>TestKettellCForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\Kettell\Scales\KettellScaleB.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleC.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleE.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleMD.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleF.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleG.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleH.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleI.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleL.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleM.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleN.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleO.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleQ1.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleQ2.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleQ3.cs" />
+    <Compile Include="PTests\Kettell\Scales\KettellScaleQ4.cs" />
+    <Compile Include="PTests\Kettell\KettellATestLoader.cs" />
+    <Compile Include="PTests\Kettell\KettellATestReport.cs" />
+    <Compile Include="PTests\Kettell\TestKettellA.cs" />
+    <Compile Include="PTests\Kettell\TestKettellAForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\Kettell\TestKettellAForm.Designer.cs">
+      <DependentUpon>TestKettellAForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\PNN\Scales\PNNScale.cs" />
+    <Compile Include="PTests\PNN\PNNTestReport.cs" />
+    <Compile Include="PTests\PoollForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\PoollForm.Designer.cs">
+      <DependentUpon>PoollForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\ResultReader\TimeLineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\ResultReader\TimeLineForm.Designer.cs">
+      <DependentUpon>TimeLineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\TestDoneEventArgs.cs" />
+    <Compile Include="PTests\PNN\PNNAnswer.cs" />
+    <Compile Include="PTests\PNN\PNNAnswers.cs" />
+    <Compile Include="PTests\PNN\PNNTestLoader.cs" />
+    <Compile Include="PTests\PNN\TestPnn.cs" />
+    <Compile Include="PTests\TestLoader.cs" />
+    <Compile Include="PTests\TestsPool.cs" />
+    <Compile Include="PTests\ResultReader\ResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\ResultReader\ResultForm.Designer.cs">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PTests\PNN\TestPnnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PTests\PNN\TestPnnForm.Designer.cs">
+      <DependentUpon>TestPnnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="DocPrinter\RtfPrinter.cs" />
+    <Compile Include="Scaning\EnumScanerType.cs" />
+    <Compile Include="Scaning\FormSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scaning\FormSelect.Designer.cs">
+      <DependentUpon>FormSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scaning\ScanerManager.cs" />
+    <Compile Include="Scaning\Scaner.cs" />
+    <Compile Include="Scaning\WIAScanner.cs" />
+    <Compile Include="Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestConstruktor\AData.cs" />
+    <Compile Include="TestConstruktor\AnwerEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestConstruktor\AnwerEdit.Designer.cs">
+      <DependentUpon>AnwerEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestConstruktor\TestAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestConstruktor\TestAdd.Designer.cs">
+      <DependentUpon>TestAdd.cs</DependentUpon>
+    </Compile>
+    <Content Include="Data\fembeded\fbembed.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\fembeded\ib_util.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\fembeded\icudt30.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\fembeded\icuin30.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\fembeded\icuuc30.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\fembeded\intl\fbintl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\fembeded\msvcp80.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\fembeded\msvcr80.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Docs\_DirectoryInfo.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\Modul2.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\Modul2method.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\Prognoz.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\PrognozMethod.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\Addictive.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\AddictiveMethod.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\Leongard.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\LeongardMethod.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\NPNA.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\NPNAMethod.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.config" />
+    <EntityDeploy Include="Data\fModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>fModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\FFBASE.FDB">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\fembeded\firebird.msg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\fembeded\intl\fbintl.conf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\FPBASE.fdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Data\pModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>pModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Properties\DataSources\Recog.Data.fBaseEntities.datasource" />
+    <None Include="Properties\DataSources\Recog.Data.pBaseEntities.datasource" />
+    <Content Include="Recog_help.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="uninst.ico" />
+    <None Include="ReadMe.txt" />
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlankRecognition\AutomatorForm.resx">
+      <DependentUpon>AutomatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlankRecognition\RForm.resx">
+      <DependentUpon>RForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlankRecognition\StenForm.resx">
+      <DependentUpon>StenForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AnswerControl.resx">
+      <DependentUpon>AnswerControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AnswersGrid.resx">
+      <DependentUpon>AnswersGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ContrastsControl.resx">
+      <DependentUpon>ContrastsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ScaleControl.resx">
+      <DependentUpon>ScaleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ThreeButtonsControl.resx">
+      <DependentUpon>ThreeButtonsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CycleControl.resx">
+      <DependentUpon>CycleControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EndTestControl.resx">
+      <DependentUpon>EndTestControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HumanControl.resx">
+      <DependentUpon>HumanControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StartTestControl.resx">
+      <DependentUpon>StartTestControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TwoButtonsControl.resx">
+      <DependentUpon>TwoButtonsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\ConnectionForm.resx">
+      <DependentUpon>ConnectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\ImportForm.resx">
+      <DependentUpon>ImportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\ExportForm.resx">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassBox.resx">
+      <DependentUpon>PassBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocPrinter\PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Humans\AddHumanForm.resx">
+      <DependentUpon>AddHumanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Humans\FormDep.resx">
+      <DependentUpon>FormDep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Humans\HumansForm.resx">
+      <DependentUpon>HumansForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Humans\ReadHumanForm.resx">
+      <DependentUpon>ReadHumanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interact\LoadFBForm.resx">
+      <DependentUpon>LoadFBForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PoolDoneForm.resx">
+      <DependentUpon>PoolDoneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\Addictive\TestAForm.resx">
+      <DependentUpon>TestAForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\Contrasts\TestContrastsForm.resx">
+      <DependentUpon>TestContrastsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\DialogBox.resx">
+      <DependentUpon>DialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\D\TestDForm.resx">
+      <DependentUpon>TestDForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\FPI\TestFPIForm.resx">
+      <DependentUpon>TestFPIForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\Kettell\TestKettellCForm.resx">
+      <DependentUpon>TestKettellCForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\Kettell\TestKettellAForm.resx">
+      <DependentUpon>TestKettellAForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\Leongard\TestLForm.resx">
+      <DependentUpon>TestLForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\MD\TestMDForm.resx">
+      <DependentUpon>TestMDForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\NPNA\TestNPNForm.resx">
+      <DependentUpon>TestNPNForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\PoollForm.resx">
+      <DependentUpon>PoollForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\Prognoz\TestPForm.resx">
+      <DependentUpon>TestPForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\ResultReader\ResultForm.resx">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\PNN\TestPnnForm.resx">
+      <DependentUpon>TestPnnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="PTests\ResultReader\TestResultForm.resx">
+      <DependentUpon>TestResultForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\ResultReader\TimeLineForm.resx">
+      <DependentUpon>TimeLineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PTests\PEditorForm.resx">
+      <DependentUpon>PEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scaning\FormSelect.resx">
+      <DependentUpon>FormSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestConstruktor\AnwerEdit.resx">
+      <DependentUpon>AnwerEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestConstruktor\TestAdd.resx">
+      <DependentUpon>TestAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="readme.ico" />
+    <Content Include="Forms\FPI.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\KettellA.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\KettellC.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\Adaptability.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\Adaptabilitymethod.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\FPImethod.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\KettellAmethod.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\KettellCmethod.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Recog_TemporaryKey.pfx" />
+    <None Include="Uninstall.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="backpack.ico" />
+    <Content Include="Images\RightArrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\LeftArrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Contrasts\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Contrasts\10.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Contrasts\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Contrasts\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Contrasts\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Contrasts\5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Contrasts\6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Contrasts\7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Contrasts\8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Contrasts\9.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Pnn\GreenCicle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Pnn\RedCicle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Pnn\YellowCicle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.10.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2008 Express Edition</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Установщик Windows 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

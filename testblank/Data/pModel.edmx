@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="pModel.Store" Alias="Self" Provider="FirebirdSql.Data.FirebirdClient" ProviderManifestToken="2.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="pModelStoreContainer">
+          <EntitySet Name="answersparams" EntityType="pModel.Store.answersparams" store:Type="Tables" Schema="Firebird" />
+          <EntitySet Name="cellsparams" EntityType="pModel.Store.cellsparams" store:Type="Tables" Schema="Firebird" />
+          <EntitySet Name="groups" EntityType="pModel.Store.groups" store:Type="Tables" Schema="Firebird" />
+          <EntitySet Name="packs" EntityType="pModel.Store.packs" store:Type="Tables" Schema="Firebird" />
+          <EntitySet Name="packtests" EntityType="pModel.Store.packtests" store:Type="Tables" Schema="Firebird" />
+          <EntitySet Name="scaners" EntityType="pModel.Store.scaners" store:Type="Tables" Schema="Firebird" />
+          <EntitySet Name="testsparams" EntityType="pModel.Store.testsparams" store:Type="Tables" Schema="Firebird" />
+          <AssociationSet Name="FK_ANSWERSPARAMS_1" Association="pModel.Store.FK_ANSWERSPARAMS_1">
+            <End Role="testsparams" EntitySet="testsparams" />
+            <End Role="answersparams" EntitySet="answersparams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CELLSPARAMS_1" Association="pModel.Store.FK_CELLSPARAMS_1">
+            <End Role="answersparams" EntitySet="answersparams" />
+            <End Role="cellsparams" EntitySet="cellsparams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PACKTESTS_1" Association="pModel.Store.FK_PACKTESTS_1">
+            <End Role="packs" EntitySet="packs" />
+            <End Role="packtests" EntitySet="packtests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TESTSPARAMS_1" Association="pModel.Store.FK_TESTSPARAMS_1">
+            <End Role="groups" EntitySet="groups" />
+            <End Role="testsparams" EntitySet="testsparams" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="answersparams">
+          <Key>
+            <PropertyRef Name="ida" />
+          </Key>
+          <Property Name="ida" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="num" Type="int" />
+          <Property Name="idt" Type="int" Nullable="false" />
+          <Property Name="description" Type="clob" Nullable="false" />
+          <Property Name="buttondescription" Type="clob" />
+          <Property Name="cellscount" Type="int" Nullable="false" />
+          <Property Name="intercellswidth" Type="int" />
+          <Property Name="cellswidth" Type="int" />
+          <Property Name="cellshight" Type="int" />
+          <Property Name="toplx" Type="int" />
+          <Property Name="toply" Type="int" />
+          <Property Name="toprx" Type="int" />
+          <Property Name="topry" Type="int" />
+          <Property Name="blx" Type="int" />
+          <Property Name="bly" Type="int" />
+          <Property Name="brx" Type="int" />
+          <Property Name="bry" Type="int" />
+        </EntityType>
+        <EntityType Name="cellsparams">
+          <Key>
+            <PropertyRef Name="idc" />
+          </Key>
+          <Property Name="idc" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="ida" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="50" />
+          <Property Name="buttonsescription" Type="varchar" MaxLength="255" />
+          <Property Name="mark" Type="int" />
+        </EntityType>
+        <EntityType Name="groups">
+          <Key>
+            <PropertyRef Name="idg" />
+          </Key>
+          <Property Name="idg" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="description" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="packs">
+          <Key>
+            <PropertyRef Name="idp" />
+          </Key>
+          <Property Name="idp" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="description" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="packtests">
+          <Key>
+            <PropertyRef Name="idt" />
+          </Key>
+          <Property Name="idt" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="idp" Type="int" Nullable="false" />
+          <Property Name="idtest" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="scaners">
+          <Key>
+            <PropertyRef Name="ids" />
+          </Key>
+          <Property Name="ids" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="currentscanername" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="driver" Type="varchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="testsparams">
+          <Key>
+            <PropertyRef Name="idt" />
+          </Key>
+          <Property Name="idt" Type="int" Nullable="false" StoreGeneratedPattern="Identity"/>
+          <Property Name="idg" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="answerscount" Type="int" Nullable="false" />
+          <Property Name="blankexists" Type="smallint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ANSWERSPARAMS_1">
+          <End Role="testsparams" Type="pModel.Store.testsparams" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="answersparams" Type="pModel.Store.answersparams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testsparams">
+              <PropertyRef Name="idt" />
+            </Principal>
+            <Dependent Role="answersparams">
+              <PropertyRef Name="idt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CELLSPARAMS_1">
+          <End Role="answersparams" Type="pModel.Store.answersparams" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="cellsparams" Type="pModel.Store.cellsparams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="answersparams">
+              <PropertyRef Name="ida" />
+            </Principal>
+            <Dependent Role="cellsparams">
+              <PropertyRef Name="ida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PACKTESTS_1">
+          <End Role="packs" Type="pModel.Store.packs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="packtests" Type="pModel.Store.packtests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="packs">
+              <PropertyRef Name="idp" />
+            </Principal>
+            <Dependent Role="packtests">
+              <PropertyRef Name="idp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TESTSPARAMS_1">
+          <End Role="groups" Type="pModel.Store.groups" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="testsparams" Type="pModel.Store.testsparams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="groups">
+              <PropertyRef Name="idg" />
+            </Principal>
+            <Dependent Role="testsparams">
+              <PropertyRef Name="idg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="pBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="answersparams" EntityType="pModel.answersparam" />
+          <EntitySet Name="cellsparams" EntityType="pModel.cellsparam" />
+          <EntitySet Name="groups" EntityType="pModel.group" />
+          <EntitySet Name="packs" EntityType="pModel.pack" />
+          <EntitySet Name="packtests" EntityType="pModel.packtest" />
+          <EntitySet Name="scaners" EntityType="pModel.scaner" />
+          <EntitySet Name="testsparams" EntityType="pModel.testsparam" />
+          <AssociationSet Name="FK_ANSWERSPARAMS_1" Association="pModel.FK_ANSWERSPARAMS_1">
+            <End Role="testsparams" EntitySet="testsparams" />
+            <End Role="answersparams" EntitySet="answersparams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CELLSPARAMS_1" Association="pModel.FK_CELLSPARAMS_1">
+            <End Role="answersparams" EntitySet="answersparams" />
+            <End Role="cellsparams" EntitySet="cellsparams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TESTSPARAMS_1" Association="pModel.FK_TESTSPARAMS_1">
+            <End Role="groups" EntitySet="groups" />
+            <End Role="testsparams" EntitySet="testsparams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PACKTESTS_1" Association="pModel.FK_PACKTESTS_1">
+            <End Role="packs" EntitySet="packs" />
+            <End Role="packtests" EntitySet="packtests" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="answersparam">
+          <Key>
+            <PropertyRef Name="ida" />
+          </Key>
+          <Property Name="ida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="num" Type="Int32" />
+          <Property Name="idt" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="buttondescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="cellscount" Type="Int32" Nullable="false" />
+          <Property Name="intercellswidth" Type="Int32" />
+          <Property Name="cellswidth" Type="Int32" />
+          <Property Name="cellshight" Type="Int32" />
+          <Property Name="toplx" Type="Int32" />
+          <Property Name="toply" Type="Int32" />
+          <Property Name="toprx" Type="Int32" />
+          <Property Name="topry" Type="Int32" />
+          <Property Name="blx" Type="Int32" />
+          <Property Name="bly" Type="Int32" />
+          <Property Name="brx" Type="Int32" />
+          <Property Name="bry" Type="Int32" />
+          <NavigationProperty Name="testsparam" Relationship="pModel.FK_ANSWERSPARAMS_1" FromRole="answersparams" ToRole="testsparams" />
+          <NavigationProperty Name="cellsparams" Relationship="pModel.FK_CELLSPARAMS_1" FromRole="answersparams" ToRole="cellsparams" />
+        </EntityType>
+        <EntityType Name="cellsparam">
+          <Key>
+            <PropertyRef Name="idc" />
+          </Key>
+          <Property Name="idc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ida" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="buttonsescription" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="mark" Type="Int32" />
+          <NavigationProperty Name="answersparam" Relationship="pModel.FK_CELLSPARAMS_1" FromRole="cellsparams" ToRole="answersparams" />
+        </EntityType>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="idg" />
+          </Key>
+          <Property Name="idg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="testsparams" Relationship="pModel.FK_TESTSPARAMS_1" FromRole="groups" ToRole="testsparams" />
+        </EntityType>
+        <EntityType Name="pack">
+          <Key>
+            <PropertyRef Name="idp" />
+          </Key>
+          <Property Name="idp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="packtests" Relationship="pModel.FK_PACKTESTS_1" FromRole="packs" ToRole="packtests" />
+        </EntityType>
+        <EntityType Name="packtest">
+          <Key>
+            <PropertyRef Name="idt" />
+          </Key>
+          <Property Name="idt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idp" Type="Int32" Nullable="false" />
+          <Property Name="idtest" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pack" Relationship="pModel.FK_PACKTESTS_1" FromRole="packtests" ToRole="packs" />
+        </EntityType>
+        <EntityType Name="scaner">
+          <Key>
+            <PropertyRef Name="ids" />
+          </Key>
+          <Property Name="ids" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="currentscanername" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="driver" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="testsparam">
+          <Key>
+            <PropertyRef Name="idt" />
+          </Key>
+          <Property Name="idt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idg" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="answerscount" Type="Int32" Nullable="false" />
+          <Property Name="blankexists" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="answersparams" Relationship="pModel.FK_ANSWERSPARAMS_1" FromRole="testsparams" ToRole="answersparams" />
+          <NavigationProperty Name="group" Relationship="pModel.FK_TESTSPARAMS_1" FromRole="testsparams" ToRole="groups" />
+        </EntityType>
+        <Association Name="FK_ANSWERSPARAMS_1">
+          <End Role="testsparams" Type="pModel.testsparam" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="answersparams" Type="pModel.answersparam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testsparams">
+              <PropertyRef Name="idt" />
+            </Principal>
+            <Dependent Role="answersparams">
+              <PropertyRef Name="idt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CELLSPARAMS_1">
+          <End Role="answersparams" Type="pModel.answersparam" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="cellsparams" Type="pModel.cellsparam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="answersparams">
+              <PropertyRef Name="ida" />
+            </Principal>
+            <Dependent Role="cellsparams">
+              <PropertyRef Name="ida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TESTSPARAMS_1">
+          <End Role="groups" Type="pModel.group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="testsparams" Type="pModel.testsparam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="groups">
+              <PropertyRef Name="idg" />
+            </Principal>
+            <Dependent Role="testsparams">
+              <PropertyRef Name="idg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PACKTESTS_1">
+          <End Role="packs" Type="pModel.pack" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="packtests" Type="pModel.packtest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="packs">
+              <PropertyRef Name="idp" />
+            </Principal>
+            <Dependent Role="packtests">
+              <PropertyRef Name="idp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="pModelStoreContainer" CdmEntityContainer="pBaseEntities">
+          <EntitySetMapping Name="answersparams"><EntityTypeMapping TypeName="pModel.answersparam"><MappingFragment StoreEntitySet="answersparams">
+            <ScalarProperty Name="ida" ColumnName="ida" />
+            <ScalarProperty Name="num" ColumnName="num" />
+            <ScalarProperty Name="idt" ColumnName="idt" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="buttondescription" ColumnName="buttondescription" />
+            <ScalarProperty Name="cellscount" ColumnName="cellscount" />
+            <ScalarProperty Name="intercellswidth" ColumnName="intercellswidth" />
+            <ScalarProperty Name="cellswidth" ColumnName="cellswidth" />
+            <ScalarProperty Name="cellshight" ColumnName="cellshight" />
+            <ScalarProperty Name="toplx" ColumnName="toplx" />
+            <ScalarProperty Name="toply" ColumnName="toply" />
+            <ScalarProperty Name="toprx" ColumnName="toprx" />
+            <ScalarProperty Name="topry" ColumnName="topry" />
+            <ScalarProperty Name="blx" ColumnName="blx" />
+            <ScalarProperty Name="bly" ColumnName="bly" />
+            <ScalarProperty Name="brx" ColumnName="brx" />
+            <ScalarProperty Name="bry" ColumnName="bry" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="cellsparams"><EntityTypeMapping TypeName="pModel.cellsparam"><MappingFragment StoreEntitySet="cellsparams">
+            <ScalarProperty Name="idc" ColumnName="idc" />
+            <ScalarProperty Name="ida" ColumnName="ida" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="buttonsescription" ColumnName="buttonsescription" />
+            <ScalarProperty Name="mark" ColumnName="mark" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="groups"><EntityTypeMapping TypeName="pModel.group"><MappingFragment StoreEntitySet="groups">
+            <ScalarProperty Name="idg" ColumnName="idg" />
+            <ScalarProperty Name="description" ColumnName="description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="packs"><EntityTypeMapping TypeName="pModel.pack"><MappingFragment StoreEntitySet="packs">
+            <ScalarProperty Name="idp" ColumnName="idp" />
+            <ScalarProperty Name="description" ColumnName="description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="packtests"><EntityTypeMapping TypeName="pModel.packtest"><MappingFragment StoreEntitySet="packtests">
+            <ScalarProperty Name="idt" ColumnName="idt" />
+            <ScalarProperty Name="idp" ColumnName="idp" />
+            <ScalarProperty Name="idtest" ColumnName="idtest" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="scaners"><EntityTypeMapping TypeName="pModel.scaner"><MappingFragment StoreEntitySet="scaners">
+            <ScalarProperty Name="ids" ColumnName="ids" />
+            <ScalarProperty Name="currentscanername" ColumnName="currentscanername" />
+            <ScalarProperty Name="driver" ColumnName="driver" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="testsparams"><EntityTypeMapping TypeName="pModel.testsparam"><MappingFragment StoreEntitySet="testsparams">
+            <ScalarProperty Name="idt" ColumnName="idt" />
+            <ScalarProperty Name="idg" ColumnName="idg" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="answerscount" ColumnName="answerscount" />
+            <ScalarProperty Name="blankexists" ColumnName="blankexists" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="pModel">
+        <EntityTypeShape EntityType="pModel.answersparam" Width="1.5" PointX="5.25" PointY="1" Height="4.0575162760416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="pModel.cellsparam" Width="1.5" PointX="7.5" PointY="2.125" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="pModel.group" Width="1.5" PointX="0.75" PointY="2.375" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="pModel.pack" Width="1.5" PointX="0.75" PointY="7" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="pModel.packtest" Width="1.5" PointX="3" PointY="6.875" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="pModel.scaner" Width="1.5" PointX="5.75" PointY="6.75" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="pModel.testsparam" Width="1.5" PointX="3" PointY="2" Height="2.0853483072916674" IsExpanded="true" />
+        <AssociationConnector Association="pModel.FK_ANSWERSPARAMS_1" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="3.0426741536458337" />
+          <ConnectorPoint PointX="5.25" PointY="3.0426741536458337" />
+        </AssociationConnector>
+        <AssociationConnector Association="pModel.FK_CELLSPARAMS_1" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="3.08550048828125" />
+          <ConnectorPoint PointX="7.5" PointY="3.08550048828125" />
+        </AssociationConnector>
+        <AssociationConnector Association="pModel.FK_TESTSPARAMS_1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.0889794921875" />
+          <ConnectorPoint PointX="3" PointY="3.0889794921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="pModel.FK_PACKTESTS_1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.7139794921875" />
+          <ConnectorPoint PointX="3" PointY="7.7139794921875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
