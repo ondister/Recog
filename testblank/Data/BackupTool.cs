@@ -213,7 +213,6 @@ namespace Recog.Data
             createdhuman.firstname = newhuman.firstname;
             createdhuman.genderid = newhuman.genderid;
             createdhuman.lastname = newhuman.lastname;
-            createdhuman.rankid = newhuman.rankid;
 
            
             foreach (testresult tresult in newhuman.testresults)

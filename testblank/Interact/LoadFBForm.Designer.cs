@@ -179,6 +179,7 @@
             // 
             // dp_mindate
             // 
+            this.dp_mindate.Enabled = false;
             this.dp_mindate.Location = new System.Drawing.Point(3, 23);
             this.dp_mindate.Name = "dp_mindate";
             this.dp_mindate.Size = new System.Drawing.Size(182, 20);
@@ -186,6 +187,7 @@
             // 
             // dp_maxdate
             // 
+            this.dp_maxdate.Enabled = false;
             this.dp_maxdate.Location = new System.Drawing.Point(3, 68);
             this.dp_maxdate.Name = "dp_maxdate";
             this.dp_maxdate.Size = new System.Drawing.Size(182, 20);
