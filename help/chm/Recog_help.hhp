@@ -1,0 +1,47 @@
+[OPTIONS]
+Auto Index=Yes
+Compatibility=1.1 or later
+Compiled file=Recog_help.chm
+Contents file=Table of Contents.hhc
+Default Font=Arial,8,0
+Default topic=info_common.htm
+Display compile progress=No
+Language=0x419 Русский (Россия)
+
+
+[FILES]
+test_sten.htm
+info_common.htm
+instal_embeded.htm
+install_common.htm
+install_server.htm
+main_menu.htm
+menu_excel.htm
+menu_mode.htm
+menu_print.htm
+menu_settings.htm
+problems_common.htm
+quick_start.htm
+respondent_common.htm
+result_character.htm
+result_common.htm
+scan_wizard.htm
+sys_request.htm
+test_blank.htm
+test_common.htm
+test_comp.htm
+contacts.htm
+m_adaptability.htm
+m_addictive.htm
+m_fpi.htm
+m_kettella.htm
+m_kettellc.htm
+m_kontrasts.htm
+m_leongard.htm
+m_modul2.htm
+m_npna.htm
+m_pnn.htm
+m_prognoz.htm
+
+[INFOTYPES]
+
