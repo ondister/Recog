@@ -13,7 +13,8 @@ Copyright (c) 2013 Kayeshka, Aliashkevich
 ********************************************************
 Лицензирование:
 Программный продукт поставляется "как-есть", авторы не несут ответственности за неправильную работу программы
-Распространяется бесплатно с исходным кодом под лицензией GNU GPL 3.0. http://www.gnu.org/copyleft/gpl.html
+Распространяется бесплатно с исходным кодом под лицензией GNU GPL 3.0. 
+http://www.gnu.org/copyleft/gpl.html
 -----------------------------------------------------------------
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
@@ -27,7 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 В программе использованы сторонние компоненты:
 AForge.NET
 Copyright © AForge.NET, 2006-2012
-contacts@aforgenet.com
 ----------------------------------
 RtfWriter
 Contributed by Matt Buckley and Thomson Reuters
